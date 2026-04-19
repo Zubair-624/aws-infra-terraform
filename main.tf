@@ -19,6 +19,12 @@ module "compute" {
   subnet_id     = module.networking.subnet_id
   instance_type = var.instance_type
   my_ip         = var.my_ip
+}
 
+module "state_backend" {
+  source = "./modules/state-backend"
+
+  project_name = var.project_name
+  environment = var.environment
 
 }
