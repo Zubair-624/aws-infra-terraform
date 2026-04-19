@@ -24,7 +24,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
   hash_key     = "LockID"
 
   attribute {
-    name = LockID
+    name = "LockID"
     type = "S"
   }
 
