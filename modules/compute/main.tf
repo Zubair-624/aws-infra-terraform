@@ -4,18 +4,18 @@ resource "tls_private_key" "main" {
 }
 
 resource "aws_key_pair" "main" {
-    key_name = "${var.project_name}-${var.environemnt}-key"
+    key_name = "${var.project_name}-${var.environment}-key"
     public_key = tls_private_key.main.public_key_openssh
 }
 
-resource "local_file" "main" {
+resource "local_file" "private_key" {
     content = tls_private_key.main.private_key_pem
     filename = "${path.root}/private-key.pem"
     file_permission = "0600"
 }
 
 resource "aws_security_group" "main" {
-    name = "${var.project_name}-${var.environemnt}-sg"
+    name = "${var.project_name}-${var.environment}-sg"
     description = "Security group for ec2 instance"
     vpc_id = var.vpc_id
 
@@ -24,7 +24,7 @@ resource "aws_security_group" "main" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["${var.my_ip/32}"]
+        cidr_blocks = ["${var.my_ip}/32"]
     }
 
     ingress {
@@ -51,7 +51,7 @@ resource "aws_security_group" "main" {
     }
 
     tags = {
-        Name = "${var.project_name}-${var.environemnt}-sg"
+        Name = "${var.project_name}-${var.environment}-sg"
     }
 }
 
