@@ -1,0 +1,55 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.8",
+  "serial": 1,
+  "lineage": "a6c2bd67-87d6-ab27-4eb1-916e5f69f2bd",
+  "outputs": {
+    "app_url": {
+      "value": null,
+      "type": "string"
+    },
+    "ec2_public_ip": {
+      "value": null,
+      "type": "string"
+    },
+    "instance_id": {
+      "value": null,
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "module": "module.compute",
+      "mode": "managed",
+      "type": "aws_key_pair",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:688025747774:key-pair/aws-infra-terraform-dev-key",
+            "fingerprint": "53:51:15:f3:74:f5:88:2e:71:11:c5:f7:32:5b:b8:54",
+            "id": "aws-infra-terraform-dev-key",
+            "key_name": "aws-infra-terraform-dev-key",
+            "key_name_prefix": "",
+            "key_pair_id": "key-01e09113592be1988",
+            "key_type": "rsa",
+            "public_key": null,
+            "tags": {},
+            "tags_all": {
+              "Environment": "dev",
+              "ManagedBy": "Terraform",
+              "Owner": "zubair-devops",
+              "Project": "aws-infra-terraform"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
