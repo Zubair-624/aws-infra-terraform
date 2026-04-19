@@ -1,12 +1,9 @@
 cat > .gitignore << 'EOF'
-# Terraform files
 .terraform/
 .terraform.lock.hcl
 *.tfstate
 *.tfstate.backup
 *.tfvars
 private-key.pem
-
-# OS files
 .DS_Store
 EOF
